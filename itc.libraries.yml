@@ -1,0 +1,9 @@
+itc:
+  version: 1.x
+  css:
+    theme:
+      css/itc.css: {}
+  js:
+    js/itc.js: {}
+  dependencies:
+      - core/jquery

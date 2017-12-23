@@ -1,0 +1,11 @@
+<?php
+
+//function itc_page_attachments(array &$page) {
+//    $page['#attached']['library'][] = 'itc/itc';
+//}
+
+function itc_element_info_alter(array &$types) {
+    if (isset($types['table'])) {
+        $types['table']['#attached']['library'][] = 'itc/itc';
+    }
+}

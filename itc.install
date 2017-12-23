@@ -1,0 +1,107 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the itc module.
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * Creates some default entries on this module custom table.
+ *
+ * @see hook_install()
+ *
+ * @ingroup itc
+ */
+/*
+function itc_install() {
+    // Add a default entry.
+    $fields = [
+        'name' => 'John',
+        'surname' => 'Doe',
+        'age' => 0,
+    ];
+    db_insert('itc')
+        ->fields($fields)
+        ->execute();
+
+    // Add another entry.
+    $fields = [
+        'name' => 'John',
+        'surname' => 'Roe',
+        'age' => 100,
+        'uid' => 1,
+    ];
+    db_insert('itc')
+        ->fields($fields)
+        ->execute();
+}
+*/
+
+/**
+ * Implements hook_schema().
+ *
+ * Defines the database tables used by this module.
+ *
+ * @see hook_schema()
+ *
+ * @ingroup itc
+ */
+function itc_schema() {
+    $schema['vote_action'] = [
+        'description' => 'Stores users actions on vote.',
+        'fields' => [
+            'id' => [
+                'type' => 'serial',
+                'not null' => TRUE,
+                'description' => 'Primary Key: Unique person ID.',
+            ],
+            'entity_id' => [
+                'type' => 'int',
+                'not null' => TRUE,
+                'description' => 'Entity_id',
+            ],
+            'entity_type' => [
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+            ],
+            'vote' => [
+                'type' => 'float',
+                'not null' => TRUE,
+                'default' => 0,
+                'description' => "User vote",
+            ],
+            'uid' => [
+                'type' => 'int',
+                'not null' => TRUE,
+                'default' => 0,
+                'description' => "User's id",
+            ],
+            'user_ip' => [
+                'type' => 'varchar',
+                'length' => 255,
+                'not null' => TRUE,
+                'default' => '',
+                'description' => "User IP",
+            ],
+            'user_browser' => [
+                'type' => 'text',
+//                'length' => 255,
+                'not null' => false,
+//                'default' => '',
+                'description' => "User Agent",
+            ],
+        ],
+        'primary key' => ['id'],
+//        'indexes' => [
+//            'name' => ['name'],
+//            'surname' => ['surname'],
+//            'age' => ['age'],
+//        ],
+    ];
+
+    return $schema;
+}

@@ -1,0 +1,11 @@
+.stars-wrap .star {
+    color: orange;
+    transition: 0.5s;
+}
+.stars-wrap .star:hover{
+    cursor: pointer;
+}
+.stars-wrap .star.hover {
+    color: orangered;
+    cursor: pointer;
+}

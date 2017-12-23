@@ -1,0 +1,6 @@
+itc.content:
+  path: '/itg-vote-do'
+  defaults:
+    _controller: '\Drupal\itc\Controller\ItcVoteController::saveVote'
+  requirements:
+    _permission: 'access content'
